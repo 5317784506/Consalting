@@ -1,9 +1,4 @@
-@font-face {
-  font-family: "Clear Sans";
-  src: url("../fonts/clearsans-medium-webfont.woff2") format("woff2"), url("../fonts/clearsans-medium-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url(https://allfont.ru/allfont.css?fonts=clear-sans-medium);
 *,
 *::before,
 *::after {
@@ -51,7 +46,7 @@ body {
   background: #202020;
   position: relative;
   overflow-x: hidden;
-  font-family: Clear Sans;
+  font-family: "Clear Sans Medium", arial;
 }
 
 [class*=__container] {
@@ -62,6 +57,10 @@ body {
 
 [class*=__container-width] {
   max-width: 1063px;
+}
+
+[class*=__btn] {
+  cursor: pointer;
 }
 
 .header {
@@ -155,18 +154,18 @@ body {
     font-size: 20px;
   }
 }
-.header__item {
-  transition: color 0.3s;
-}
 @media (max-width: 660px) {
   .header__item {
     padding: 50px 0px;
   }
 }
-.header__item:hover {
+.header__item span {
   color: #C20000;
 }
-.header__item span {
+.header__link {
+  transition: color 0.3s;
+}
+.header__link:hover {
   color: #C20000;
 }
 .header__btn {
@@ -199,27 +198,34 @@ body {
   background: url(../img/main.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  padding-bottom: 133px;
+  padding-top: 249px;
+}
+@media (max-width: 660px) {
+  .mainpage {
+    padding-bottom: 90px;
+    padding-top: 170px;
+  }
 }
 .mainpage__body {
   position: relative;
-  padding-top: 249px;
   max-width: 450px;
   z-index: 1;
-}
-@media (max-width: 691px) {
-  .mainpage__body {
-    padding-top: 200px;
-  }
 }
 .mainpage__body::before {
   content: "";
   position: absolute;
   left: -244px;
-  top: -110px;
+  top: -400px;
   background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.86) 44.79%, rgba(0, 0, 0, 0.21) 88.02%, rgba(0, 0, 0, 0) 98.94%, rgba(0, 0, 0, 0) 98.95%);
   width: 1012px;
   height: 783px;
   z-index: -1;
+}
+@media (max-width: 660px) {
+  .mainpage__body::before {
+    display: none;
+  }
 }
 .mainpage__title {
   font-weight: 500;
@@ -230,9 +236,11 @@ body {
 .mainpage__title span {
   color: #C20000;
 }
-@media (max-width: 280px) {
+@media (max-width: 660px) {
   .mainpage__title {
-    font-size: 24px;
+    font-size: 32px;
+    line-height: 40px;
+    padding-bottom: 40px;
   }
 }
 .mainpage__btn {
@@ -244,7 +252,6 @@ body {
   line-height: 19px;
   letter-spacing: 0.75px;
   padding: 14px 14.85px;
-  margin-bottom: 133px;
   transition: 0.3s;
 }
 .mainpage__btn:hover {
@@ -317,19 +324,22 @@ body {
   background: url(../img/services.png) no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  padding: 71px 0px 161px 0px;
+}
+@media (max-width: 635px) {
+  .services {
+    padding: 66px 0px 60px 0px;
+  }
 }
 .services__body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 71px;
-  padding-bottom: 161px;
 }
 @media (max-width: 635px) {
   .services__body {
     flex-direction: column;
     justify-content: center;
-    padding: 40px 0px 100px 0px;
   }
 }
 .services__items {
@@ -383,13 +393,34 @@ body {
   }
 }
 
+.text-tax {
+  display: none;
+}
+.text-tax.text-tax.active {
+  display: block;
+}
+
+.text-accounting {
+  display: none;
+}
+.text-accounting.text-accounting.active {
+  display: block;
+}
+
+.text-lawyer {
+  display: none;
+}
+.text-lawyer.text-lawyer.active {
+  display: block;
+}
+
 .advantages {
   background: url(../img/advantages.png) no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  padding-top: 34.38px;
 }
 .advantages__body {
-  padding-top: 34.38px;
   text-align: center;
 }
 .advantages__title {
@@ -398,6 +429,11 @@ body {
   font-size: 34px;
   line-height: 140.62%;
   letter-spacing: 0.25px;
+}
+@media (max-width: 635px) {
+  .advantages__title {
+    padding-bottom: 5px;
+  }
 }
 .advantages__items {
   display: flex;
@@ -409,6 +445,7 @@ body {
 @media (max-width: 691px) {
   .advantages__items {
     padding: 20px 0px;
+    row-gap: 15px;
   }
 }
 .advantages__item {
@@ -431,11 +468,23 @@ body {
   line-height: 24px;
   letter-spacing: 0.44px;
 }
+@media (max-width: 635px) {
+  .item__body {
+    padding: 23px 20px 13px 20px;
+  }
+}
 .item__subtitle {
   padding: 21px 0px;
 }
-.consultation__body {
+.consultation {
   padding: 85px 0px;
+}
+@media (max-width: 635px) {
+  .consultation {
+    padding: 55px 0px;
+  }
+}
+.consultation__body {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -444,7 +493,6 @@ body {
   .consultation__body {
     flex-direction: column;
     justify-content: center;
-    padding: 55px 0px;
   }
 }
 .consultation__title {
@@ -463,33 +511,53 @@ body {
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 635px) {
+  .consultation__form {
+    width: 100%;
+  }
+}
 .consultation__input {
   background-color: transparent;
   color: #fff;
   padding: 28px 0px 9px 0px;
+  margin-left: 30px;
   border-bottom: 1px solid #FFFFFF;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.44px;
   outline: none;
+  width: 300px;
+}
+@media (max-width: 635px) {
+  .consultation__input {
+    margin-left: 0;
+    width: auto;
+  }
 }
 .consultation__btn {
   background-color: transparent;
   color: #fff;
   padding: 8.4px 13.6px;
   margin-top: 45px;
+  margin-left: 30px;
   border: #C20000 1px solid;
   transition: 0.3s;
   font-weight: 500;
   font-size: 14px;
   line-height: 19px;
   letter-spacing: 0.75px;
-  min-width: 234px;
+  max-width: 234px;
 }
 .consultation__btn:hover {
   background: #0A0909;
   box-shadow: 0px 0px 23px 10px rgba(255, 255, 255, 0.25);
+}
+@media (max-width: 635px) {
+  .consultation__btn {
+    margin-left: 0px;
+    max-width: 100%;
+  }
 }
 
 .footer {
@@ -528,13 +596,15 @@ body {
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.44px;
-  transition: color 0.3s;
-}
-.footer__item:hover {
-  color: #C20000;
 }
 @media (max-width: 691px) {
   .footer__item {
     padding-left: 25px;
   }
+}
+.footer__link {
+  transition: color 0.3s;
+}
+.footer__link:hover {
+  color: #C20000;
 }/*# sourceMappingURL=style.css.map */
