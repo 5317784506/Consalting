@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 	$('.header__burger').click(function (event) {
 		$('.header__burger,.header__menu').toggleClass('active');
@@ -12,35 +11,24 @@ $(function () {
 
 
 
+const servicesBtn = document.querySelectorAll(".services__btn");
+const tabsItems = document.querySelectorAll(".services__text");
 
-let a = document.querySelector(".text-tax"),
-	b = document.querySelector(".text-accounting"),
-	c = document.querySelector(".text-lawyer");
-const tax = document.querySelector(".btn-tax"),
-	accounting = document.querySelector(".btn-accounting"),
-	lawyer = document.querySelector(".btn-lawyer");
+servicesBtn.forEach(function (item) {
+	item.addEventListener("click", function () {
+		let currentBtn = item;
+		let tabId = currentBtn.getAttribute("data-tab");
+		let currentTab = document.querySelector(tabId);
 
-////////////////////////////////////////////////////
+		servicesBtn.forEach(function (item) {
+			item.classList.remove('active');
+		});
 
-tax.addEventListener('click', function () {
-	a.classList.toggle('active');
-});
+		tabsItems.forEach(function (item) {
+			item.classList.remove('active');
+		});
 
-/////////////////////////////////////////////////////
-
-accounting.addEventListener('click', function () {
-	b.classList.toggle('active');
-});
-
-lawyer.addEventListener('click', function () {
-	c.classList.toggle('active');
-});
-
-/*
-if (tax) {
-	tax.addEventListener('click', function () {
-		a.classList.toggle('active');
-	}
-	);
-}
-*/
+		currentBtn.classList.add('active');
+		currentTab.classList.add('active');
+	});
+})
